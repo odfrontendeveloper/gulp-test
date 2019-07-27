@@ -1,0 +1,20 @@
+@media(max-width: 540px){
+  .header {
+    height: 75px;
+  }
+}
+@media(min-width: 541px) and (max-width: 730px){
+  .header {
+    height: 87px;
+  }
+}
+@media(min-width: 731px) and (max-width: 1050px){
+  .header {
+    height: 230px;
+  }
+}
+@media(min-width: 1051px){
+  .header {
+    height: 230px;
+  }
+}
