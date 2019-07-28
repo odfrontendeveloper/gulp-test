@@ -8,6 +8,8 @@ const babel = require('gulp-babel');
 const minify = require('gulp-minify');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
+// const rjs = require('gulp-requirejs');
+// const browserify = require('gulp-browserify');
 
 const CSS_SRC_HOME = './src/sass/*.scss';
 

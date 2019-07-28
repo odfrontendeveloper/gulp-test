@@ -106,15 +106,17 @@ function createSlider(mainBlock, rowBlock, previousButton, nextButton, buttonsCo
   return {'start': makeSlider};
 }
 
-if(document.querySelector('#previousSlide') != null){
-  let newslider = createSlider('.projects-control', '.projects-slider-list', '#previousSlide', '#nextSlide', '.control-projects-block-main');
-  newslider.start();
-}
-if(document.querySelector('#previousSlide-1') != null){
-  let newslider1 = createSlider('.projects-control-about-1', '.projects-slider-list-about-1', '#previousSlide-1', '#nextSlide-1', '.control-projects-block-main-about-1');
-  newslider1.start();
-}
-if(document.querySelector('#previousSlide-2') != null){
-  let newslider2 = createSlider('.projects-control-about-2', '.projects-slider-list-about-2', '#previousSlide-2', '#nextSlide-2', '.control-projects-block-main-about-2');
-  newslider2.start();
-}
+export default createSlider;
+
+// if(document.querySelector('#previousSlide') != null){
+//   let newslider = createSlider('.projects-control', '.projects-slider-list', '#previousSlide', '#nextSlide', '.control-projects-block-main');
+//   newslider.start();
+// }
+// if(document.querySelector('#previousSlide-1') != null){
+//   let newslider1 = createSlider('.projects-control-about-1', '.projects-slider-list-about-1', '#previousSlide-1', '#nextSlide-1', '.control-projects-block-main-about-1');
+//   newslider1.start();
+// }
+// if(document.querySelector('#previousSlide-2') != null){
+//   let newslider2 = createSlider('.projects-control-about-2', '.projects-slider-list-about-2', '#previousSlide-2', '#nextSlide-2', '.control-projects-block-main-about-2');
+//   newslider2.start();
+// }
