@@ -1,4 +1,3 @@
-//подключаем модули галпа
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
@@ -8,14 +7,17 @@ const babel = require('gulp-babel');
 const minify = require('gulp-minify');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
-// const rjs = require('gulp-requirejs');
-// const browserify = require('gulp-browserify');
+const browserify = require("browserify");
+const babelify = require("babelify");
+const source = require('vinyl-source-stream');
+const named = require('vinyl-named');
+const webpack = require('webpack-stream');
 
 const CSS_SRC_HOME = './src/sass/*.scss';
 
 const JS_SRC = './src/js/*.js';
 const CSS_DEST = './build/css';
-const JS_DEST = './build/js'
+const JS_DEST = './build/js';
 
 const LEVEL = 2;
 
@@ -44,22 +46,39 @@ gulp.task('transpilationСSSwithMinifacation', function(){
    .pipe(gulp.dest(CSS_DEST))
 });
 
-gulp.task('transpilationJS', function(){
-  return gulp.src(JS_SRC)
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
-    .pipe(gulp.dest(JS_DEST))
+
+gulp.task('mainJs', function(){
+  return gulp.src('./src/js/main.js')
+  .pipe(babel({
+    presets: ['@babel/env']
+  }))
+  .pipe(webpack({
+    output: {
+      filename: 'main.js',
+    }
+  }))
+  .pipe(named())
+  .pipe(gulp.dest('./build/js'));
 });
 
-gulp.task('transpilationJSwithMinifacation', function(){
-  return gulp.src(JS_SRC)
+gulp.task('aboutJs', function(){
+  return gulp.src('./src/js/about.js')
     .pipe(babel({
       presets: ['@babel/env']
     }))
-    .pipe(minify())
-    .pipe(gulp.dest(JS_DEST))
+    .pipe(webpack({
+      output: {
+        filename: 'about.js',
+      }
+    }))
+    .pipe(named())
+    .pipe(gulp.dest('./build/js'));
 });
+
+gulp.task('transpilationJS', gulp.series(
+  'mainJs',
+  'aboutJs'
+));
 
 gulp.task('hotReload', function(){
   browserSync.init({
@@ -78,7 +97,6 @@ gulp.task('hotReload', function(){
       .pipe(gulp.dest(CSS_DEST));
   });
   gulp.watch(CSS_SRC_HOME).on('change', browserSync.reload);
-
 });
 
 gulp.task('compress', function() {
@@ -94,8 +112,8 @@ gulp.task('dev', gulp.series(
   gulp.parallel('compress', 'hotReload')
 ));
 
-gulp.task('prod', gulp.series(
-  'transpilationСSSwithMinifacation',
-  'transpilationJSwithMinifacation',
-  'compress'
-));
+// gulp.task('prod', gulp.series(
+//   'transpilationСSSwithMinifacation',
+//   'transpilationJSwithMinifacation',
+//   'compress'
+// ));

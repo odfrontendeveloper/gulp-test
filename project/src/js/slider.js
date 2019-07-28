@@ -106,8 +106,9 @@ function createSlider(mainBlock, rowBlock, previousButton, nextButton, buttonsCo
   return {'start': makeSlider};
 }
 
-export default createSlider;
+// export default createSlider;
 
+module.exports = createSlider;
 // if(document.querySelector('#previousSlide') != null){
 //   let newslider = createSlider('.projects-control', '.projects-slider-list', '#previousSlide', '#nextSlide', '.control-projects-block-main');
 //   newslider.start();

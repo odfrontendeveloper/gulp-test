@@ -11,4 +11,5 @@ function menuButton(){
   });
 }
 
-export default menuButton;
+module.exports = menuButton;
+// export default menuButton;
