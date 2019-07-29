@@ -11,15 +11,7 @@ div.our-projects-block
           img(src="./build/img/Next.png")
     div.projects-control
       div.projects-slider-list
-        div.project-info
-          div.project
-          div.description Duis suscipit venenatis
-        div.project-info
-          div.project
-          div.description Ligula Dignissim
-        div.project-info
-          div.project
-          div.description Dapibus sit amet
-        div.project-info
-          div.project
-          div.description Quisque!
+        each val, index in ['Duis suscipit venenatis','Ligula Dignissim','Dapibus sit amet','Quisque!']
+          div.project-info
+            div.project
+            div.description= val

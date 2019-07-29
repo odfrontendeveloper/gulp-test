@@ -109,6 +109,7 @@ gulp.task('dev', gulp.series(
 ));
 
 gulp.task('prod', gulp.series(
+  'htmlcode',
   'transpilationСSSwithMinifacation',
   'transpilationJS',
   'compress'
