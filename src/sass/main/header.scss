@@ -13,6 +13,15 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
+.home-blog {
+  padding: 0px 0px 10px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-end;
+  color: silver;
+}
 .header {
   display: flex;
   flex-direction: column;
@@ -101,11 +110,14 @@ body {
     width: 100%;
     height: 450px;
     .head-control-panel {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #e74c3c;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: #e74c3c;
+      .home-blog {
+        display: none;
+      }
       .dropdowm-block {
         display: flex;
         padding: 10px 0px 10px 0px;
@@ -194,6 +206,9 @@ body {
     align-items: center;
     width: 100%;
     height: 500px;
+    .home-blog {
+      display: none;
+    }
     .head-control-panel {
       display: flex;
       flex-direction: row;
@@ -264,6 +279,9 @@ body {
     align-items: center;
     width: 100%;
     height: 500px;
+    .home-blog {
+      width: 100%;
+    }
     .head-control-panel {
       display: flex;
       flex-direction: row;
@@ -333,6 +351,9 @@ body {
   .header{
     min-width: 1000px;
     height: 700px;
+    .home-blog {
+      width: 1000px;
+    }
     .head-control-panel {
       width: 1000px;
       height: 100px;
