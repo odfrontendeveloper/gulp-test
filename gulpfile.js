@@ -15,8 +15,6 @@ const CSS_DEST = './build/css';
 const JS_SRC = './src/js/*.js';
 const JS_DEST = './build/js';
 const LEVEL = 2;
-const PUG_SRC = './src/pug/*.pug';
-const PUG_DEST = './build/';
 
 gulp.task('transpilationСSS', function(){
   return gulp.src(CSS_SRC)
@@ -73,9 +71,9 @@ gulp.task('transpilationJS', gulp.series(
 ));
 
 gulp.task('htmlcode', function buildHTML() {
-  return gulp.src(PUG_SRC)
+  return gulp.src('./src/pug/*.pug')
   .pipe(pug())
-  .pipe(gulp.dest(PUG_DEST))
+  .pipe(gulp.dest('./'))
 });
 
 gulp.task('hotReload', function(){

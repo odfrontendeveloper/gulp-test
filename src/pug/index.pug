@@ -4,7 +4,8 @@ html(lang="en" dir="ltr")
     title Main
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    link(rel="stylesheet" type="text/css" href="./css/main.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" type="text/css" href="./build/css/main.css")
     link(href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet")
   body
     include header/header-main.pug
@@ -13,4 +14,4 @@ html(lang="en" dir="ltr")
       include redblock/main/redblock-main.pug
       include slider/main/slider-main.pug
       include footer/footer.pug
-    script(src="./js/main.js")
+    script(src="./build/js/main.js")
